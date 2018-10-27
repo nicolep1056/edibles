@@ -17,7 +17,13 @@ app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "view.html"));
   });
   
+<<<<<<< HEAD
+  app.get("/reservations", function(req, res) {
+    res.sendFile(path.join(__dirname, "add.html"));
+  });
+=======
 
+>>>>>>> 9037aa0eae1fcd1929f4ae6ccb6092140303cbf2
   
   // Displays all tables
   app.get("/tables", function(req, res) {
