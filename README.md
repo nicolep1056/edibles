@@ -16,8 +16,5 @@ A resturant booking application that demonstrates Node.js and Express with jQuer
 * Jennifer Tuten
 * Michael Wenhold
 * Nicole Pike
-<<<<<<< HEAD
-
-# Acknowledgments
 =======
->>>>>>> d0899eb5067ad1bf5edb6f10fcb4fba9efe362b4
+
