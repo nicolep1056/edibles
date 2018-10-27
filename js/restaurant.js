@@ -2,9 +2,11 @@ $(document).ready(function() {
 
 $('#reserve').on('click', function() {
     console.log('reservations clicked');
+    location.href="reservation.html"
 })
 $('#view').on('click', function() {
     console.log('view clicked');
+    location.href="tables.html"
 })
 $('#submit').on('click', function() {
     console.log('submit clicked');
