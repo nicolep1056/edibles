@@ -1,12 +1,45 @@
-let http = require("http");
+var express = require('express');
+var path = require('path');
+
+var app = express();
 let port = 8080;
 
-function handleRequest(request, response) {
-    respnse.end("Working. Path Hit: " + request.url)
-};
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-let server = http.createServer(handleRequest);
 
-server.listen(port, function() {
-    console.log("Listning on port no: " + port);
-});
+var reservations = []
+// Routes
+// =============================================================
+
+// Basic route that sends the user first to the AJAX Page
+app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "view.html"));
+  });
+  
+
+  
+  // Displays all tables
+  app.get("/tables", function(req, res) {
+    return res.json(tables);
+  });
+  
+  app.post("/reservations", function(req, res) {
+      // req.body hosts is equal to the JSON post sent from the user
+  // This works because of our body parsing middleware
+  var newRes = req.body;
+
+  // Using a RegEx Pattern to remove spaces from newCharacter
+  // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+  newRes.routeName = newRes.name.replace(/\s+/g, "").toLowerCase();
+
+  console.log(newRes);
+
+  reservations.push(newRes);
+
+  res.json(newRes);
+  });
+
+  app.listen(port, function() {
+    console.log("App listening on port " + port);
+  });
